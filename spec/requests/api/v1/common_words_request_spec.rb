@@ -7,6 +7,7 @@ describe '/api/v1' do
 
 			results = JSON.parse(response.body)
 
+			expect(status).to eq(200)
 			expect(results).to be_an(Array)
 			expect(results[0]["text"]).to be_a(String)
 			expect(results[0]["value"]).to be_a(Integer)

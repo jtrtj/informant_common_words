@@ -1,0 +1,38 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/home/jtrtj/projects/informant/informant_common_words/app/jobs/application_job.rb": [
+        0,
+        0
+      ],
+      "/home/jtrtj/projects/informant/informant_common_words/app/mailers/application_mailer.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/home/jtrtj/projects/informant/informant_common_words/app/models/application_record.rb": [
+        0,
+        0,
+        0
+      ],
+      "/home/jtrtj/projects/informant/informant_common_words/app/channels/application_cable/channel.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/home/jtrtj/projects/informant/informant_common_words/app/channels/application_cable/connection.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/home/jtrtj/projects/informant/informant_common_words/app/controllers/application_controller.rb": [
+        0,
+        0
+      ]
+    },
+    "timestamp": 1540670545
+  }
+}

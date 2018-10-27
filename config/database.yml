@@ -78,8 +78,16 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+staging:
+  # <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
+  # database: informant_common_words_staging
+  # username: informant_common_words
+  # password: <%= ENV['INFORMANT_COMMON_WORDS_DATABASE_PASSWORD'] %>
+
 production:
-  <<: *default
-  database: informant_common_words_production
-  username: informant_common_words
-  password: <%= ENV['INFORMANT_COMMON_WORDS_DATABASE_PASSWORD'] %>
+  # <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
+  # database: informant_common_words_production
+  # username: informant_common_words
+  # password: <%= ENV['INFORMANT_COMMON_WORDS_DATABASE_PASSWORD'] %>

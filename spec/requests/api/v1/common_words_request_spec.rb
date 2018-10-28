@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe '/api/v1' do
-	context '/common_words' do
+	context 'GET /common_words' do
 		it 'returns JSON object of words with their counts' do
 			get '/api/v1/common_words'
 

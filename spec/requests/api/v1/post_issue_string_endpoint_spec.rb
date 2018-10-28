@@ -5,7 +5,7 @@ describe '/api/v1' do
     it "will send the issue's ID and string to be added to the db" do
       payload = { "representation_id": 1, "issue_string": "Test issue 11345 &#@$% []("}
 
-      post '/api/v1/common_words', params: payload.to_json
+      post '/api/v1/common_words', params: payload
 
       status = response.status
       result = JSON.parse(response.body)

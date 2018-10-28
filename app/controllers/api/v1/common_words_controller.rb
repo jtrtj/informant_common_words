@@ -11,6 +11,6 @@ class Api::V1::CommonWordsController < ApplicationController
 	private
 
 	def rep_params
-		params.require([:representation_id, :issue_string])
+		params.permit([:representation_id, :issue_string])
 	end
 end

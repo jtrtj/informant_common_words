@@ -1,12 +1,12 @@
 class RepresentationIssueProcessor
-    attr_reader :result, 
+  attr_reader :result, 
                 :status
 
   def initialize(rep_params)
     @lobbying_represenntation_id = rep_params[:representation_id]
-    @issue                       = rep_params[:issue_string]
-    @result                     = { message: nil }
-    @status                      = nil
+    @issue = rep_params[:issue_string]
+    @result = { message: nil }
+    @status = nil
   end
   
   def process_issue
@@ -24,7 +24,9 @@ class RepresentationIssueProcessor
   def add_words_to_db
     new_words = extract_words_from_issue
     new_words.map do | word |
-      Word.find_or_create_by(text: word)
+      if word.length > 3
+        Word.find_or_create_by(text: word)
+      end
     end
   end
 

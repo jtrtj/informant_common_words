@@ -10,7 +10,7 @@ describe '/api/v1' do
       status = response.status
       result = JSON.parse(response.body)
       expect(status).to be(201)
-      expect(result["message"]).to eq("Lobbying Representation: #{payload["representation_id"]} issue logged in common words system.")
+      expect(result["message"]).to eq("Lobbying Representation: #{payload[:representation_id]} issue logged in common words system.")
     end
   end
 end

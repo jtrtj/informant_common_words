@@ -6,6 +6,9 @@ class Api::V1::CommonWordsController < ApplicationController
 
 	def create
 		processor = RepresentationIssueProcessor.new(rep_params)
+		processor.process_issue
+		render json:   processor.result,
+					 status: processor.status
 	end
 
 	private

@@ -10,14 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_28_210910) do
+ActiveRecord::Schema.define(version: 2018_10_29_031604) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "words", force: :cascade do |t|
-    t.string "text"
-    t.integer "issue_count", default: 0
+  create_table "representation_issue_words", force: :cascade do |t|
+    t.integer "representation_id"
+    t.bigint "word_id"
+    t.index ["word_id"], name: "index_representation_issue_words_on_word_id"
   end
 
+  create_table "words", force: :cascade do |t|
+    t.string "text"
+    t.integer "representation_issue_count", default: 0
+  end
+
+  add_foreign_key "representation_issue_words", "words"
 end

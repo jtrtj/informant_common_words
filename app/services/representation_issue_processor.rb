@@ -11,6 +11,12 @@ class RepresentationIssueProcessor
     end
   end
 
+  def add_representation_issue_words_to_db
+    add_words_to_db.each do | new_word |
+      RepresentationIssueWord.create(representation_id: @lobbying_represenntation_id, word: new_word)
+    end
+  end
+
   def extract_words_from_issue
     stop_words            = /\b(?:#{ %w[to and or the a of by for on].join('|') })\b/i
     allowed_characters    = Regexp.union(/[a-z]/, " ")

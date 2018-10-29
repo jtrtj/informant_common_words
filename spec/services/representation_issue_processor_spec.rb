@@ -21,7 +21,8 @@ describe RepresentationIssueProcessor do
       data = { "representation_id": 1, "issue_string": "the Test issue issue 11345 &#@$% [](" }
       processor = RepresentationIssueProcessor.new(data)
 
-      expect{processor.add_issue_words_to_db}.to change {RepresentationIssueWord.count}.by(2)
+      expect{processor.add_representation_issue_words_to_db}.to change {RepresentationIssueWord.count}.by(2)
+      expect(Word.first.representation_issue_count).to eq(1)
     end
   end
 end

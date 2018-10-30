@@ -1,5 +1,7 @@
 class RepresentationIssueProcessor
-  attr_reader :result, 
+  include WordsNotNeeded
+
+  attr_reader :result,
                 :status
 
   def initialize(rep_params)
@@ -8,17 +10,26 @@ class RepresentationIssueProcessor
     @result = { message: nil }
     @status = nil
   end
-  
+
   def process_issue
-    add_representation_issue_words_to_db
-    @result[:message] = "Lobbying Representation: #{@lobbying_represenntation_id} issue logged in common words system."
-    @status = 201
+    if add_representation_issue_words_to_db
+      @result[:message] = "Lobbying Representation: #{@lobbying_represenntation_id} issue logged in common words system."
+      @status = 201
+    else
+      @result[:message] = "Invalid issue parameters"
+      @status = 400
+    end
   end
 
   def add_representation_issue_words_to_db
+    valid_words = 0
     add_words_to_db.each do | new_word |
-      RepresentationIssueWord.create(representation_id: @lobbying_represenntation_id, word: new_word)
+      if new_word != nil
+        RepresentationIssueWord.create(representation_id: @lobbying_represenntation_id, word: new_word)
+        valid_words + 1
+      end
     end
+    return true if valid_words > 0
   end
 
   def add_words_to_db
@@ -31,7 +42,7 @@ class RepresentationIssueProcessor
   end
 
   def extract_words_from_issue
-    stop_words            = /\b(?:#{ %w[to and or the a of by for on].join('|') })\b/i
+    stop_words            = superfluous_words
     allowed_characters    = Regexp.union(/[a-z]/, " ")
     downcased_issue       = @issue.downcase
     issue_with_only_words = downcased_issue.chars.select {|c| c =~ allowed_characters}.join("")

@@ -1,4 +1,6 @@
 language: ruby
+rvm: 2.5.3
+install: gem install bundler
 cache:
 - bundler
 before_script:

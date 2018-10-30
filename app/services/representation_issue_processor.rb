@@ -22,14 +22,13 @@ class RepresentationIssueProcessor
   end
 
   def add_representation_issue_words_to_db
-    valid_words = 0
+    valid_words = RepresentationIssueWord.count
     add_words_to_db.each do | new_word |
       if new_word != nil
         RepresentationIssueWord.create(representation_id: @lobbying_represenntation_id, word: new_word)
-        valid_words + 1
       end
     end
-    return true if valid_words > 0
+    return true if RepresentationIssueWord.count > valid_words
   end
 
   def add_words_to_db

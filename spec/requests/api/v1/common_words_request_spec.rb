@@ -10,6 +10,7 @@ describe '/api/v1' do
 			RepresentationIssueProcessor.new(data_2).process_issue
 
 			get '/api/v1/common_words'
+			
 			results = JSON.parse(response.body)
 
 			expect(status).to eq(200)

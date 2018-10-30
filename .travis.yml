@@ -1,0 +1,14 @@
+language: ruby
+cache:
+- bundler
+before_script:
+- bundle exec rake db:create
+- bundle exec rake db:migrate
+- bundle exec rake assets:precompile
+deploy:
+  provider: heroku
+  api_key:
+    secure: "IQybbT1ywxvlkeTf52D1ib8Kmi3bIy2HsICFPzg8TDEgn/Sd8XcfPqZK2ONAQ8cFK1X3XLCQasQ0TdHVixDTPDKqX7VLfzZsOXKxIZVusFV7QATVqXPIs12rnYlpjb5iIvrhSbcxfj16S5ADklUxVF6hH3cL92sDL3hz/udg+CCRP8IdObzL4WfLBU0SHYhPG+OE3RCSDlX/8+AtF2J19oA2Iy+XheGxfEKdKL/0rBsCHqveM6BfiOw5xnx/pk8wc/wA5cX09UV9FgKHbJzUFOAGovkBtRgPlRPjKiROknT5RiREFdUyVrgn5yEf4BmP/eZ07Kwe4iD+vINKjYUuevLF14Ul66+Si/dq/bd5Hjl9XkfL8iLQAXrvm7kE0MguxEkSJhJagOJwZPhIg7fS7qpAh4/t/NxBg7Et0E1QcvPZp94trBjdFmiOntyL9PDbBv/Dhj/cLHT55nWlEvajxh3vrHs+89Ysuz1n1anfrTvrMTh3txqOx3J7OiwaByIEYXBAW4hypaITm3rtpHM7f2Ed5tMCjo7E6GLt6J48AS5i8YXYh+alXaoyhAkSUH2FGJ5vcvlsKxMHNjO4wbOl3Oh/piW/HMggLe9sEjcZD9MLJHjwKfXJor/YXPmt+9RJFnULUY48hREE1kDDvzRtKzZbZyqS+8g24/83rBx48H8="
+  app: informant-words-staging
+  on:
+    repo: jtrtj/informant_common_words

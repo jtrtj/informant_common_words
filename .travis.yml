@@ -1,9 +1,10 @@
 language: ruby
 rvm: 2.5.3
+before_install:
+  - gem install bundler -v 1.17.1
 cache:
 - bundler
 before_script:
-- gem install bundler
 - bundle install
 - bundle exec rake db:create
 - bundle exec rake db:migrate

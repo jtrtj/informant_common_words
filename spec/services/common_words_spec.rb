@@ -8,6 +8,11 @@ describe CommonWords do
 			
 			RepresentationIssueProcessor.new(data_1).process_issue
       RepresentationIssueProcessor.new(data_2).process_issue
+      RepresentationIssueProcessor.new(data_2).process_issue
+      RepresentationIssueProcessor.new(data_2).process_issue
+      RepresentationIssueProcessor.new(data_2).process_issue
+      RepresentationIssueProcessor.new(data_2).process_issue
+
       
       expect(CommonWords.data[0]).to have_key(:text)
       expect(CommonWords.data[0]).to have_key(:value)

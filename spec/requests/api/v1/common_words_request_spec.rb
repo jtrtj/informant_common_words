@@ -7,6 +7,10 @@ describe '/api/v1' do
 			data_2 = { "representation_id": 1, "issue_string": "the Test issue issue is cool wow" }
 			
 			RepresentationIssueProcessor.new(data_1).process_issue
+			RepresentationIssueProcessor.new(data_1).process_issue
+			RepresentationIssueProcessor.new(data_1).process_issue
+			RepresentationIssueProcessor.new(data_1).process_issue
+			RepresentationIssueProcessor.new(data_1).process_issue
 			RepresentationIssueProcessor.new(data_2).process_issue
 			
 			get '/api/v1/common_words'

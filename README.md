@@ -1,8 +1,8 @@
-# Informant Common Words API
+# Politik Common Words API
 [![Build Status](https://travis-ci.org/jtrtj/informant_common_words.svg?branch=master)](https://travis-ci.org/jtrtj/informant_common_words)
 ---
 
-#### This API provides data for a word cloud on [Informant](https://informant-lobby.herokuapp.com). It accepts POST requests from Informant Lobbyist API. The Informant Lobbyist API sends strings of text from Lobbyist filings and the Common Words API keeps track of how many times each word appears.
+#### This API provides data for a word cloud on [Politik](https://informant-lobby.herokuapp.com). It accepts POST requests from Politik Lobbyist API. The Politik Lobbyist API sends strings of text from Lobbyist filings and the Common Words API keeps track of how many times each word appears.
 
 > __POST /api/v1/common_words__
 >
@@ -57,3 +57,10 @@
         "value": 47
     }
 ```
+### if you would like to deploy locally:
+1. Clone this repo
+1. `$ cd` into directory
+1. `$ bundle update`
+1. `$ rake db:{create,migrate}`
+1. `$ rspec` to run the test suite
+1. `$ rails s` use [PostMan](https://www.getpostman.com/) or similar to make a POST request to localhost:3000/api/v1/common_words
